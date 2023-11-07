@@ -1,0 +1,30 @@
+n, k = map(int,input().split())
+arr=[]
+size=n
+queue = []
+for i in range(1,n+1):
+    arr.append(i)
+front = rear = -1
+
+print('<',end='')
+
+for i in range(n):
+    for _ in range(k):
+        a=(front+1)%size
+        front=a
+    print(arr[a], end='')
+    if i<n-1:
+        print(', ', end='')
+            
+    rear = front-1
+    del arr[front]
+    size-=1
+    front=rear
+    
+print('>')
+    
+
+
+
+# del arr[(front+1)%size]
+# del arr[k]
