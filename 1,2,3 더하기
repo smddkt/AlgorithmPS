@@ -1,0 +1,11 @@
+t=int(input())
+arr=[1, 2, 4]
+
+for _ in range(t):
+    n=int(input())
+    if n<=3:
+        print(arr[n-1])
+    else:
+        for i in range(len(arr),n+1):
+                arr.append(arr[i-3]+arr[i-2]+arr[i-1])
+        print(arr[n-1])
