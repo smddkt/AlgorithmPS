@@ -1,0 +1,22 @@
+#영학이는 0딸기 1초코 2바나나 순으로만 우유를 마신다.
+
+
+n=int(input())
+a=0
+b=0
+
+arr= list(map(int,input().split()))
+
+
+for i in range(n):
+    if arr[i]==a:
+        b+=1
+        if a==0 or a==1:
+            a+=1
+        else: a-=2
+    else: continue
+
+print(b)
+        
+
+
