@@ -1,0 +1,59 @@
+n=int(input())
+
+changes = 1000-n
+count=0
+
+while changes>0:
+    if changes>=500:
+        changes-=500
+    elif changes>=100:
+        changes-=100
+    elif changes>=50:
+        changes-=50
+    elif changes>=10:
+        changes-=10
+    elif changes>=5:
+        changes-=5
+    else: changes-=1
+    count+=1
+    
+print(count)
+    
+    
+n=int(input())
+
+arr=[500, 100, 50, 10, 5, 1]
+
+a=0
+
+b=0
+
+while a<(1000-n):
+    for i in arr:
+        if i>(1000-n)-a:
+            continue
+        else:
+            a+=i
+            b+=1
+            break
+            
+print(b)
+
+n=int(input())
+
+changes = 1000-n
+count=0
+
+arr=[500, 100, 50, 10, 5, 1]
+
+
+while changes>0:
+    for i in arr:
+        if i<=changes:
+            changes-=i
+            count+=1
+            break
+        continue
+
+print(count)
+    

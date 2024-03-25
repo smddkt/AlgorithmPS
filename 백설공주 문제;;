@@ -1,0 +1,43 @@
+a=0
+
+arr=[]
+    
+for i in range(9):
+    b=int(input())
+    arr.append(b)
+    a+=b
+    
+c=a-100
+d=0
+e=0
+
+for i in arr:
+    for j in arr:
+        if i+j==c and i!=j:
+            arr.remove(i)
+            arr.remove(j)
+    if len(arr)==7:
+        break
+        
+
+arr.sort()
+print(arr)
+# for i in arr:
+#     print(i)
+
+
+
+for i in arr:
+    for j in arr:
+        if i+j==b and i!=j:
+            arr.remove(i)
+            arr.remove(j)
+            break
+
+
+for i in arr:
+    for j in arr:
+        if i+j==c and i!=j:
+            arr.remove(i)
+            arr.remove(j)
+        break

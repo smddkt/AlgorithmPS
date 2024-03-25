@@ -1,0 +1,19 @@
+import sys
+n, k = map(int, sys.stdin.readline().split())
+price=[]
+
+for i in range(n):
+    price.append(int(sys.stdin.readline()))
+    
+price.reverse()
+count=0
+
+for i in price:
+    if k<=0:
+        break
+    elif i<= k:
+        count+=(k//i)
+        k%=i
+    continue
+   
+print(count)

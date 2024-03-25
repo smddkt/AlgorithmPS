@@ -1,0 +1,54 @@
+import sys
+from collections import deque
+m,n = map(int, sys.stdin.readline().split())
+
+graph=[list(map(int, sys.stdin.readline().split()))for _ in range(n)]
+result = 0
+
+def bfs(x, y):
+    queue = deque()
+    queue.append((x, y))
+    global ny, nx, result
+    x,y = queue.popleft()
+    
+    for i in range(4):
+        nx=x+dx[i]
+        ny=y+dy[i]
+        if nx<0 or ny<0 or nx>=m or ny>=n:
+            continue
+        if graph[ny][nx]==0:
+            graph[ny][nx]=graph[y][x]+1
+            result=graph[ny][nx]
+            queue.append((nx,ny))
+                    
+    return result
+  
+dx=[-1, 1, 0, 0]
+dy=[0, 0, -1, 1]
+
+def a():
+    for i in graph:
+            if 0 in i:
+                return True
+            
+def b():
+    for j in graph:
+            if N in j:
+                return True
+            
+N=0 
+arr=[]           
+while b()==True and a()==True:
+    N+=1
+    for i in range(n):
+        for j in range(m):
+            if graph[i][j]==N: 
+                arr.append([j, i])
+    for k in range(len(arr)):
+        bfs(int(arr[k][0]),int(arr[k][1]))
+            
+
+if a()==True:
+    print(-1)
+else: 
+    print(N)

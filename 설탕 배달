@@ -1,0 +1,12 @@
+n=int(input())
+a=0
+
+while True:
+    n-=3
+    a+=1
+    if n%2==0 and n//2<=a:
+        print(a)
+        break
+    elif n<3:
+        print(-1)
+        break

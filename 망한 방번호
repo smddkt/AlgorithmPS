@@ -1,0 +1,37 @@
+arr_1=list(input())
+
+arr_2=[[],[],[],[],[],[]]
+
+a=1
+
+for i in range(len(arr_1)):
+    if arr_1[i] not in arr_2[0]:
+        arr_2[0].append(arr_1[i])
+        a+=0
+    elif arr_1[i] not in arr_2[1]:
+        if arr_2==False:
+            arr_2[1].append(arr_1[i])
+            a+=1
+        else: arr_2[1].append(arr_1[i])
+    elif arr_1[i] not in arr_2[2]:
+        if arr_2==False:
+            arr_2[2].append(arr_1[i])
+            a+=1
+        else: arr_2[1].append(arr_1[i])
+    elif arr_1[i] not in arr_2[3]:
+        if arr_2==False:
+            arr_2[3].append(arr_1[i])
+            a+=1
+        else: arr_2[1].append(arr_1[i])
+    elif arr_1[i] not in arr_2[4]:
+        if arr_2==False:
+            arr_2[4].append(arr_1[i])
+            a+=1
+        else: arr_2[1].append(arr_1[i])
+    else: 
+        if arr_2==False:
+            arr_2[5].append(arr_1[i])
+            a+=1
+        else: arr_2[1].append(arr_1[i])
+        
+print(a)

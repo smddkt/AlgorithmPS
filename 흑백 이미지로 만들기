@@ -1,0 +1,56 @@
+"""
+#GIF 파일 출력하기
+
+from tkinter import *
+
+window = Tk()
+window.geometry("800x500")
+
+photo = PhotoImage(file = 'king.GIF')
+
+paper = Label(window, image=photo)
+paper.pack(expand=1, anchor=CENTER)
+window.mainloop()
+
+
+#컬러 이미지를 1차원 배열로 만들기
+
+r,g,b= photo.get(i,k)
+value = (r+g+b)//3
+photoAry.append(value)
+
+
+"""
+
+from tkinter import *
+
+window = Tk()
+window.geometry("2000x2000")
+photo = PhotoImage(file = 'ld.GIF')
+
+photoAry = []
+h = photo.height()
+w = photo.width()
+
+for i in range(h):
+    for k in range(w):
+        r, g, b = photo.get(i,k)
+        value = (r+g+b) // 3
+        photoAry.append(value)
+        
+for i in range(len(photoAry)):
+    if photoAry[1]<= 127 :
+        photoAry[i]=0
+    else:
+        photoAry[i]=255
+        
+pos = 0
+for i in range(h):
+    for k in range(w):
+        r = g = b = photoAry[pos]
+        pos +=1   
+        photo.put("#%02x%02x%02x" %(r, g, b), (i,k))  #16진수(공백은 0으로 채운 2자리)곱하기3(r값, g값, b값)을 i(x좌표),k(y좌표)위치에 대입하기
+        
+paper = Label(window, image=photo)
+paper.pack(expand=1, anchor=CENTER)
+window.mainloop()

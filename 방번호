@@ -1,0 +1,38 @@
+arr=[]
+arr.append(list(map(int,input())))
+
+s=arr[0].count(6)
+n=arr[0].count(9)
+sn = arr[0].count(6)+arr[0].count(9)
+
+
+if sn<=1:
+    pass
+elif sn%2==0:
+    sn=sn//2
+elif sn%2==1:
+    sn=sn//2+1
+        
+for _ in range(s):
+    arr[0].remove(6)
+    
+for _ in range(n):
+    arr[0].remove(9)
+
+arr2=[]
+count=0
+
+for i in arr[0]:
+    arr2.append(i)
+    dupl=0
+    dupl+=arr2.count(i)
+    if dupl>count:
+        count=dupl
+
+if sn>count:
+    print(sn)
+else:
+    print(count)
+
+        
+        
