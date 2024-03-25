@@ -1,0 +1,19 @@
+a,b = input().split()
+
+a=[6 if i=='5' else i for i in a]
+b=[6 if j=='5' else j for j in b]
+
+a = "".join(list(map(str,a)))
+b = "".join(list(map(str,b)))
+        
+c=int(a)+int(b)
+
+a=[5 if i=='6' else i for i in a]
+b=[5 if j=='6' else j for j in b]
+
+a = "".join(list(map(str,a)))
+b = "".join(list(map(str,b)))
+        
+d=int(a)+int(b)
+
+print(d,c)
