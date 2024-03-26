@@ -1,3 +1,20 @@
+# 위에서 아래로
+
+n = int(input())
+arr=[]
+
+for _ in range(n):
+    arr.append(int(input()))
+    print(arr)
+    
+arr = sorted(arr, reverse=True) #내림차순으로 정렬하고 싶을 때
+
+for i in arr:
+    print(i, end=' ')
+
+
+# 성적이 낮은 학생 순서로 출력하기
+# 튜플 자료형 연습
 n= int(input())
 arr=[]
 
@@ -13,3 +30,9 @@ for student in arr:
 
 print()
     
+    
+    
+
+
+
+

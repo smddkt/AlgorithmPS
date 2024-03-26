@@ -162,6 +162,13 @@ for i in range(len(count)):
 
 sorted(array) 또는 array.sort()이렇게 씀. 후자는 key 매개변수를 임력값으로 받을 수 있다. 
 예를 들면 리스트의 데이터가 튜플일 때. sorted(array, key=setting) 이렇게 쓸 수 있음. 
+근데 여기서 setting이라고 쓸 수 있는 거는, 함수 이름이어야만 한다. 
+
+array[(튜플), (튜플), ...]인 경우에
+def setting(data):
+    return data[1] 이렇게 하든지
+
+아니면 함수 선언 안 하고 lambda함수로 바로 sorted(array, key = lambda data:data[1]) 이런 식으로 하면 됨. 
 
 시간 복잡도는 최악의 경우에도 O(NlogN)이다. 
 """
