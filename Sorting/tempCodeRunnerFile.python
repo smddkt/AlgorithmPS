@@ -1,0 +1,78 @@
+"""
+선택 정렬: 남아 있는 것들 중 가장 작은 것을 선택
+---> 처리되지 않은 데이터 중 맨 앞에 있는 데이터와 바꾸기
+"""
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
+for i in range(len(array)):
+    min_index = i
+    for j in range(i + 1, len(array)):
+        if array[min_index]>array[j]:
+            min_index = j
+    array[i], array[min_index] = array[min_index], array[i]
+
+print(array)
+
+"""
+선택정렬의 시간 복잡도: o(n^2) 
+---> 다른 알고리즘에 비해 비효율적. but 최솟값, 최댓값 구할 때 좋음.
+"""
+
+
+
+"""
+삽입 정렬: 데이터가 거의 정렬되어 있을 때 가장 효과적.
+늘 오름차순(왼쪽으로 갈수록 작아짐)으로 정렬되어 있다. 삽입할 데이터(2번째부터 시작)를 한 칸 씩 왼 쪽으로 옮기면서,
+삽입될 데이터보다 작은 데이터를 만나면 그 위치에서 멈추고 바로 뒤에 삽입하면 된다. 
+"""
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
+for i in range(1, len(array)):
+    for j in range(i, 0, -1):
+        if array[j] < array[j-1]:
+            array[j], array[j-1] = array[j-1], array[j]
+        else:
+            break
+print(array)
+
+"""
+삽입정렬의 시간 복잡도: o(n^2) 
+---> 선택정렬과 비슷하지만 거의 정렬이 완성되어있는 상태라면 삽입 정렬이 훨씬 빠르다.
+"""
+
+
+
+"""
+퀵 정렬: 기준(피벗) 데이터를 설정하고 그 기준보다 큰 데이터와 작은 데이터의 위치를 바꾼다. 
+가장 많이 사용되고, 빠르다. 
+"""
+
+#1. 분할
+#2. 왼쪽 리스트 분할
+#3. 오른쪽 리스트 분할
+
+array = [5, 7, 9, 0, 3, 1, 6, 2, 4, 8]
+
+def quick sort(array, start, end):
+    if start >= end: #리스트의 원소 개수가 1개이면
+        return #재귀함수 호출을 멈춤.
+    pivot = start + 1
+    left = start + 1
+    right = start + 1
+    while left < = end and array[left] <= array[pivot]:
+        left+=1 #왼쪽 리스트: 피벗보다 큰 데이터를 찾을 때까지 한 칸씩 오른쪽으로 이동함.
+    while right > start and array[right] >= array[pivot]:
+        right-=1 #오른쪽 리스트: 피벗보다 작은 데이터를 찾을 때까지 한 칸씩 왼쪽으로 이동함.
+
+    if left>right:
+        array[right], array[pivot] = array[pivot], array[right]
+    else:
+        array[left]. array[right] = array[right], array[left]
+
+quick_sort(array, start, right-1)
+quick_sort(array, right+1, end)
+
+quick_sort(array, 0, len(array)-1)
+print(array)        
+
