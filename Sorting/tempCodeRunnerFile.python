@@ -1,15 +1,7 @@
-n= int(input())
-arr=[]
+n, k = map(int, input().split())
+a=[]
+b=[]
 
-for _ in range(n):
-    data = input().split()
-    arr.append((data[0], int(data[1]))) #그냥 입력받은 값을 튜플로 바꿔서 저장함. 
-    #근데 저장할 때 이름은 그대로, 성적은 int로 바꿔서 저장함. 
-    
-arr = sorted(arr, key= lambda student: student[1])
-
-for student in arr:
-    print(student[0], end=' ')
-
-print()
-    
+a.extend(list(map(int, input().split())))
+a.extend(list(map(int, input().split())))
+print(a)
