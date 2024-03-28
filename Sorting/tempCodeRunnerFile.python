@@ -1,7 +1,36 @@
-n, k = map(int, input().split())
-a=[]
-b=[]
+#방법 2
+import sys
 
-a.extend(list(map(int, input().split())))
-a.extend(list(map(int, input().split())))
-print(a)
+n = int(input())
+arr=[]
+
+for i in range(n):
+    arr.append(int(sys.stdin.readline()))
+    
+    
+def qsort(array, start, end):
+    pivot = start
+    left = start+1
+    right = end
+    
+    while left < right:
+        while array[left] < end and array[left] <= pivot:
+            array[left]+=1
+            
+        while array[right] > start and array[right] > pivot:
+            array[right]-=1
+        
+        if left<right:
+            array[left], array[right] = array[right], array[left]
+        else: 
+            array[left], array[pivot] = array[pivot], array[left]
+    
+    qsort(array, start+1, right)
+    qsort(array, right+1, end)
+    
+arr=qsort(arr)
+
+for j in arr:
+    print(j)
+
+            
