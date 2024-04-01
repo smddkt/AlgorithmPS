@@ -1,0 +1,25 @@
+n=int(input())
+arr=sorted(list(map(int, input().split())))
+m=int(input())
+arr2=list(map(int, input().split()))
+
+
+#이진탐색 알고리즘
+def binary_search(array, target, start, end):
+    if start>end:
+        return 0
+    
+    mid = (start+end)//2
+    
+    if array[mid]==target:
+        return 1
+    elif array[mid]>target:
+        return binary_search(array, target, start, mid-1)
+    else:
+        return binary_search(array, target, mid+1, end)
+    
+    
+#for문을 돌면서 target 값에 arr2의 원소를 차례대로 넣게 된다. 
+for i in range(m):
+    print(binary_search(arr, arr2[i], 0, n-1)) 
+    
