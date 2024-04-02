@@ -1,0 +1,47 @@
+#이진탐색으로 풀기
+
+n=int(input())
+arr1=sorted(list(map(int, input().split()))) #가지고 있는 물품 리스트
+
+m=int(input())
+arr2=list(map(int, input().split())) #손님이 찾는 물품 리스트 
+
+def binary_search(array, target, start, end):
+    if start>end:
+        return "no"  #이진탐색 결과 없으면 no를 반환
+    mid=(start+end)//2
+    
+    if target==array[mid]:
+        return "yes" #이진탐색 결과 찾으면 yes를 반환
+    elif target>=array[mid]:
+        return binary_search(array, target, mid+1, end)
+    else: 
+        return binary_search(array, target, start, mid-1)
+
+for i in range(m):
+    print(binary_search(arr1, arr2[i], 0, n-1), end=' ')
+    
+    
+
+
+#계수정렬로 풀기
+
+n= int(input())
+array = [0]*1000001  #모든 공간에 0 집어 넣음
+
+for i in input().split():
+    array[int(i)] = 1      #가지고 있는 물건을 입력받고,물건의 숫자에 해당하는 자리는 0대신 1로 표시함.
+    
+m = int(input())
+x = list(map(int, input().split()))   #손님이 요청하는 물품은 리스트로 받음.
+
+
+
+#요청하는 물품의 array에서의 index가 1이면 yes, 0이면 no를 출력함.
+for i in x:
+    if array[i] ==1:      
+        print('yes', end=' ')
+    else:
+        print('no', end=' ')
+        
+        
