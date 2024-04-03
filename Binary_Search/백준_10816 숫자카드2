@@ -1,0 +1,25 @@
+#이분탐색 이용, count()로 원소 개수 찾아서 시간 초과된 풀이법
+
+import sys
+
+n=int(input())
+arr1=sorted(list(map(int, sys.stdin.readline().split())))
+
+
+m=int(input())
+arr2=list(map(int, sys.stdin.readline().split())) 
+
+def binary_search(array, target, start, end):
+    while start<=end:
+        mid=(start+end)//2
+        
+        if target==array[mid]:
+            return arr1.count(target)
+        elif target>array[mid]:
+            start=mid+1
+        else:
+            end=mid-1
+    return 0
+    
+for i in range(m):
+    print(binary_search(arr1, arr2[i], 0, n-1), end=' ')
