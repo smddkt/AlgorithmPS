@@ -19,14 +19,16 @@ def binary_search(array, target, start, end):
             start=mid+1
         else:
             end=mid-1
-    return 0
+    return None
 
 
 numlist=[] 
 
 for i in range(m):
-        if binary_search(arr1, arr2[i], 0, n-1) !=0:
+        if binary_search(arr1, arr2[i], 0, n-1) == arr2[i]:
             numlist.append(binary_search(arr1, arr2[i], 0, n-1)) #이진탐색으로 arr1에 있는 원소로만 구성된 numlist를 만들기
+
+
 
 counts={} #빈 딕셔너리
 
