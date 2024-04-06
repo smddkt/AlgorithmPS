@@ -1,0 +1,25 @@
+import sys
+
+n, m = map(int,sys.stdin.readline().split())
+
+trees= list(map(int,sys.stdin.readline().split()))
+
+
+def addLength(x, arr):
+    len_tree=0
+    for i in range(n):
+        if arr[i]>=x:
+            len_tree +=(arr[i]-x)
+        continue
+    return len_tree
+
+a=0
+
+for k in range(max(trees), -1, -1):
+
+    if addLength(k, trees)>=m:
+        a=k
+        print(a)
+        break
+
+    
