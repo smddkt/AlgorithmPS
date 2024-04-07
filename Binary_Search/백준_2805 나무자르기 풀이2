@@ -1,0 +1,39 @@
+import sys
+
+n, m = map(int,sys.stdin.readline().split())
+
+trees= list(map(int,sys.stdin.readline().split()))
+
+
+k= max(trees)
+arr=[]
+for i in range(0, k+1):
+    arr.append(i)
+    
+def addLength(x, arr):
+    len_tree=0
+    for i in range(n):
+        if arr[i]>=x:
+            len_tree +=(arr[i]-x)
+        continue
+    return len_tree
+
+
+
+def binary_search(arr, target, start, end):
+    if start>end:
+        return None
+    mid = (start+end)//2
+    
+    if addLength(mid, trees)==target:
+        return mid
+    elif addLength(mid, trees)>target:
+        return binary_search(arr, target, mid+1, end)
+    else: 
+        return binary_search(arr, target, start, mid-1)
+            
+
+print(binary_search(arr, m, 0, len(arr)))
+
+    
+    
