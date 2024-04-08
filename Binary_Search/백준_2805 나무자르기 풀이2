@@ -1,39 +1,41 @@
+#이진탐색으로 풀기
+
 import sys
 
 n, m = map(int,sys.stdin.readline().split())
 
 trees= list(map(int,sys.stdin.readline().split()))
 
-
-k= max(trees)
-arr=[]
-for i in range(0, k+1):
-    arr.append(i)
+def binary_search(trees, target, start, end):
     
-def addLength(x, arr):
-    len_tree=0
-    for i in range(n):
-        if arr[i]>=x:
-            len_tree +=(arr[i]-x)
-        continue
-    return len_tree
-
-
-
-def binary_search(arr, target, start, end):
-    if start>end:
-        return None
-    mid = (start+end)//2
-    
-    if addLength(mid, trees)==target:
-        return mid
-    elif addLength(mid, trees)>target:
-        return binary_search(arr, target, mid+1, end)
-    else: 
-        return binary_search(arr, target, start, mid-1)
+    while start <= end:
+        mid = (start+end)//2
+        a=0
+        len_trees = 0
+        for i in range(n):
+            if trees[i]>mid:
+                len_trees+=(trees[i]-mid)
+            else: a+=1
+            
+    # 설정한 높이에 따라서 잘린 나무의 길이의 합 = len_trees
+            
+                    
+        if len_trees==target:
+            return mid
+            
+        elif len_trees>target:
+            if (len_trees-n+a) < target:
+                return mid  
+                #target과 정확히 일치하지는 않지만, 조건을 만족하는 최대 높이가 현재 mid인 경우.
+            else: start = mid + 1
+                #현재 mid보다 더 높은 높이에서 잘라도 조건을 만족할 수 있는 경우.
+        else: 
+            end = mid - 1
+            
+    return None
             
 
-print(binary_search(arr, m, 0, len(arr)))
+print(binary_search(trees, m, 0, max(trees)))
 
     
     
