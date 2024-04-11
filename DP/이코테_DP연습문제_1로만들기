@@ -1,0 +1,18 @@
+#1에서 x 만들기: *5, *3, *2, +1 을 사용해서.
+
+x=int(input())
+
+
+#2, 3, 5는 한 번만에
+#4, 6, 9, 10 등은 두 번만에
+
+arr=[1]
+a=0
+while a<x:
+    a+=1
+    for i in arr:
+        arr=[i+1, i*2, i*3, i*5]
+        if x in arr:
+            print(a)
+            break
+
