@@ -1,10 +1,17 @@
-n = int(input())
-n, m = map(int, input().split())
+k = int(input())
 
-a=1
-if n<=1 :
-    print(m)
-else: 
-    for i in range(m):
-        for j in range(2, n+1):
-            a *= (m-i)
+
+for i in range(k):
+    n, m = map(int, input().split())
+    res=m
+
+    if n == 1:
+        print(m)
+
+    elif n == m:
+        print(1)
+        
+    else: 
+        for j in range(2, n+1):   
+            res=res*(m-j+1)//j
+        print(res)
