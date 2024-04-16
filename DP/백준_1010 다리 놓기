@@ -5,12 +5,18 @@ for i in range(k):
     n, m = map(int, input().split())
     res=m
 
-    if n == 1:
-        print(m)
 
+    #왼쪽 사이트가 한 개면 오른 쪽 사이트 m 개 중 한 개를 골라야 하므로 m가지 경우의 수
+    if n == 1: 
+        print(m)
+        
+        
+    #왼쪽, 오른쪽 사이트 개수가 같으면 연결할 수 있는 방법이 한 개뿐이다. 
     elif n == m:
         print(1)
         
+        
+    # res의 초기값은 nCr중 n이 1인 m(r)으로 놓고, nCr 공식을 이용해서 n이 1씩 커질 때 res 값을 업데이트한다.   
     else: 
         for j in range(2, n+1):   
             res=res*(m-j+1)//j
