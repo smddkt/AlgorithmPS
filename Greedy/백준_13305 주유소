@@ -1,0 +1,19 @@
+import sys
+input=sys.stdin.readline
+
+n= int(input())
+
+dist=list(map(int, input().split()))   #거리 리스트
+oil=list(map(int, input().split()))    #리터당 기름값 리스트
+
+
+price=dist[0]*oil[0]    #비용은 첫번째 도시에서 두번째 도시로 이동하는 데 필요한 최소값으로 초기화한다.
+minoil = oil[0]         #가장 저렴한 리터당 기름값은 첫번째 도시의 기름값으로 초기화한다.
+
+for i in range(1, n-1):   
+    if minoil>oil[i]:
+        minoil=oil[i]    #기름값이 더 싼 지역이 나올 때마다 minoil을 갱신한다. 
+    price+=(minoil*dist[i])    #그 후의 지역을 방문할 때는 갱신된 minoil값을 거리에 곱해서 더한다. 
+
+print(price)
+
