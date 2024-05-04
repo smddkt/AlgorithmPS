@@ -1,0 +1,27 @@
+from collections import deque
+
+"""
+collection 라이브러리의 deque 기능을 import하면 
+popleft()       --> 첫번째 원소를 제거
+pop()           --> 마지막 원소를 제거
+appendleft(x)   --> 첫번째 인덱스에 원소 삽입
+append(x)       --> 마지막 인덱스에 원소 삽입
+이 모두 가능.
+
+
+일반적인 append()와 pop()메서드로 입력, 출력할 때는 
+뒤에서 입력, 뒤에서 출력하는 stack은 잘 구현이 되지만, 
+앞에서 입력하거나 가장 앞쪽의 원소를 제거하려고 하면 시간 복잡도가 O(1)이 아니라 O(N)이 된다. 
+
+"""
+
+queue = deque()
+
+queue.append(5)
+queue.append(4)
+queue.append(3)
+queue.popleft()
+queue.append(2)
+queue.popleft()
+
+print(queue)
