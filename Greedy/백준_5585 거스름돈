@@ -81,7 +81,7 @@ arr=[500, 100, 50, 10, 5, 1]
 
 for i in arr:
     if changes/i<=0:
-    continue
+        continue
     else:
         count+=(changes//i)
         changes = changes%i
