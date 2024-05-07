@@ -1,24 +1,27 @@
 import sys
-import heapq
-
 input=sys.stdin.readline
 
 n=int(input())
-min_heap=[]
+arr=[]
 
 for i in range(n):
-    heapq.heappush(min_heap, int(input()))
+    arr.append(i)
 
-res=0
-while len(min_heap)>=2:
-    a= heapq.heappop(min_heap)
-    b= heapq.heappop(min_heap)
-    res+=(a+b)
-    heapq.heappush(min_heap, (a+b))
+arr=sorted(arr)
 
+hap = arr[0]+arr[1]
 
-print(res)
+del arr[0]
+del arr[0]
 
+if hap<arr[1]:
+    hap=arr[0]+hap
+    del arr[0]
+else: 
+    arr.append(hap)
+    hap=arr[0]+arr[1]
+    del arr[0]
+    del arr[0]
 
 
 
