@@ -1,0 +1,19 @@
+a, b = map(int, input().split())
+res=1
+
+while b>a:          
+    if b%10 == 1:
+        res+=1
+        b//=10
+        if b<=a:break
+    elif b%2==1:
+        break
+    else: 
+        res+=1
+        b//=2
+        if b<=a:break
+
+if b==a:
+    print(res)
+else: 
+    print(-1)
