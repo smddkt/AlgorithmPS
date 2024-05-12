@@ -10,24 +10,35 @@ for i in range(1, m+1):
 
 from collections import deque
 
-queue=deque()
-res = False
+
+visited=[-1]*(n+1)
+res = []
+empty=True
 
 def bfs(x):
-    global res
-    queue.append(x)
+    global empty
+    queue=deque([x])
+    visited[x]=1
     count=0
-    while len(queue)>0:
+    while queue:
         x= queue.popleft()
-        count+=1
         for j in roads[x]:
-            if j not in queue:
+            if visited[j]==-1:
                 queue.append(j)
+                visited[j]=1
+                count+=1
                 if count==k:
-                    res = True
-                    print(j)
+                    res.append(j)
+                    empty=False
+    
+    return res
 
 bfs(x)
 
-if res== False:
+res= sorted(res)
+
+if empty==False:
+    for i in res:
+        print(i)
+else:
     print(-1)
