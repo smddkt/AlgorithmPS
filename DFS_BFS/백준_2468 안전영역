@@ -1,0 +1,20 @@
+n=int(input())
+graph=[]
+k = int(input())
+#n까지 잠긴다고 했을 때..
+
+for i in range(n):
+    graph.append(list(map(int, input().split())))
+
+def dfs(x, y):
+    if x<0 or y<0 or x>=n or y>=n:
+        return False
+    if graph[x][y]>n:
+        graph[x][y]=n
+        res+=1
+        dfs(x+1, y)
+        dfs(x-1, y)
+        dfs(x, y+1)
+        dfs(x, y-1)
+    return False
+        
