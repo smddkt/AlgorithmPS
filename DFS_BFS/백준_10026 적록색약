@@ -1,0 +1,59 @@
+#적록색약인 사람에게는 R=G, B 이렇게 보이고 아닌 사람에게는 R, G, B이렇게 보인다. 
+# import sys
+# input=sys.stdin.readline()
+
+n=int(input())
+
+graph=[]
+for i in range(n):
+    graph.append(list(input()))
+
+count3=0
+count2=0
+
+dx=[0, 0, -1, +1]
+dy=[1, -1, 0, 0]
+
+def dfs_count3(x, y):
+    for i in range(4):
+        nx=x+dx[i]
+        ny=y+dy[i]
+        if nx<0 or ny<0 or nx>=n or ny>=n:
+            return False
+        if graph[nx][ny]==graph[x][y]:
+            graph[x][y]=1
+            dfs_count3(nx, ny)
+            return True
+        return False
+    
+def dfs_count2(x, y):
+    for i in range(4):
+        nx=x+dx[i]
+        ny=y+dy[i]
+        if nx<0 or ny<0 or nx>=n or ny>=n:
+            return False
+        if graph[nx][ny] == graph[x][y]:
+            graph[x][y]=1
+            dfs_count2(nx, ny)
+            return True
+        elif graph[nx][ny]=="R" and graph[x][y]=="G":
+            graph[x][y]=1
+            dfs_count2(nx, ny)
+            return True
+        elif graph[nx][ny]=="G" and graph[x][y]=="R":
+            graph[x][y]=1
+            dfs_count2(nx, ny)
+            return True
+        else: return False
+
+    
+for i in range(n):
+    for j in range(n):
+        if dfs_count3(i, j)==True:
+            count3+=1
+            print(i, j, graph)
+        if dfs_count2(i, j)==True:
+            count2+=1
+            print(i, j, graph)
+
+print(count3, count2)
