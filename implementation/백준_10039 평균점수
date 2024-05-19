@@ -1,0 +1,12 @@
+arr=[]
+for i in range(5):
+    arr.append(int(input()))
+
+hap=0
+for k in arr:
+    if k<=40:
+        hap+=40
+    else:
+        hap+=k
+
+print(hap//5)
