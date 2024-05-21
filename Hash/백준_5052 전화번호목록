@@ -1,0 +1,27 @@
+#복습!
+#접두어가 없다=YES 출력, 접두어가 있다= NO 출력하기
+
+def solution(num_list):
+    dict={}
+    for number in num_list:
+        dict[number] = True
+
+    for number in num_list:
+        temp=""
+        for i in number: #문자열은 이터러블 객체이다.
+            temp += i
+            if temp in dict and temp !=number:
+                return "NO"
+    
+    return "YES"
+
+
+t= int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr=[]
+    for i in range(n):
+        arr.append(input())
+
+    print(solution(arr))
