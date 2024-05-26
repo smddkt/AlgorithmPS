@@ -1,0 +1,17 @@
+def solution(numbers):
+    first = [[]for i in range(10)]
+    second = [[]for i in range(10)]
+    third = [[]for i in range(10)]
+    
+    numbers = list(map(str, numbers))
+    
+    for number in numbers:
+        first[int(number[0])].append(number)
+    if len(number)>=2:
+        second[int(number[1])].append(number)
+    if len(number)>=3:
+        third[int(number[2])].append(number)
+     
+
+    
+    return (first, second, third)
