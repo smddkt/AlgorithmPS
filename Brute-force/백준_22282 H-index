@@ -1,0 +1,14 @@
+n = int(input())
+arr=[]
+
+for i in range(n):
+    arr.append(int(input()))
+
+def solution(citations):
+    citations.sort(reverse=True)
+    for i in range(len(citations)):
+        if citations[i]<=i:
+            return i
+    return len(citations)
+
+print(solution(arr))
