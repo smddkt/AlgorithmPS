@@ -1,0 +1,32 @@
+def solution(brown, yellow):
+    answer = []
+    garo = 0
+    sero = 0
+    
+    for i in range(1, yellow+1):
+        if yellow%i==0:
+            garo = int(yellow/i)
+            sero = i
+            if (garo+sero)*2 + 4 ==brown:
+                answer = [garo+2, sero+2]
+                break
+    return sorted(answer, reverse = True)
+
+'''
+문제에서 식을 두 개 도출할 수 있다. 가로*세로 == Yellow라는 것과, 2(가로+ 세로)+4 == Brown이라는 것. 
+그걸 알고도 가로, 세로 변수를 따로 해서 for문을 두 번 돌려야 하나? 라고 생각함. 
+자동으로 올라가는 i값을 가로나 세로 둘 중 하나로 사용할 수 있다는 아이디어를 생각하기가 어려웠다.
+
+
+if yellow%i==0:
+            garo = int(yellow/i)
+            sero = i
+
+(이부분)
+
+
+그리고 또 하나 간과한 점은, 가로랑 세로 중 내 마음대로 하나는 garo, 하나는 i이렇게 지정한 것이므로,
+문제의 조건에 맞게 배열에서는 가로, 세로 순으로 출력해야 한다.
+그래서 맨 마지막 리턴값에서 리스트를 내림차순으로 정렬했다.
+
+'''
