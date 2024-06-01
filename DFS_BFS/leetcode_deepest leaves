@@ -1,0 +1,31 @@
+from collections import defaultdict
+
+class Solution: 
+    def deepestLeavsSum(self, root:Optional[TreeNode]) -> int:
+        """
+        root: Optional[TreeNode]는 함수가 TreeNode 객체이거나 None일 수 있는 root라는 매개변수를 받는다는 것을 나타낸다.
+        -> int는 이 함수가 int 타입의 값을 반환할 것이라는 것을 나타낸다.
+        """
+        nodeLevel = defaultdict(list)
+
+        def dfs(currentNode: TreeNode, level: int):
+
+            if not nodeLevel[level]:
+                nodeLevel[level] = []
+            
+            nodeLevel[level].append(currentNode.val)
+
+            if currentNode.left:
+                dfs(currentNode.left, level+1)
+            
+            if currentNode.right:
+                dfs(currentNode.right, level+1)
+
+            dfs(root, 0)
+
+            maxLevel = max(nodeLevel.keys())
+
+            result = sum(nodeLevel[maxLevel])
+
+            return result
+    
