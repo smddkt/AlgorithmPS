@@ -1,0 +1,14 @@
+import sys
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+arr=list(map(int, input().split()))
+
+presum = [0 for i in range(n+1)]
+presum[1] = arr[0]
+for i in range(2, len(arr)+1):
+    presum[i]=arr[i-1]+presum[i-1]
+
+for _ in range(m):
+    i, j = map(int, input().split())
+    print(presum[j]-presum[i-1])
