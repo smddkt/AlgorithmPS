@@ -1,3 +1,9 @@
+    
+"""
+DFS로 재귀함수를 계속 호출해서 푸는 방법이다. 
+"""
+
+#첫번째 풀이
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -26,7 +32,27 @@ class Solution(object):
 
         helper(root.left, root.right, 1)
         return root
-    
-"""
-DFS로 재귀함수를 계속 호출해서 푸는 방법이다. 
-"""
+
+
+
+
+#두 번째 풀이
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def reverseOddLevels(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def reverse(a, b, is_odd=True):
+            if a is None or b is None:
+                return
+            if is_odd==True:
+                a.val, b.val = b.val, a.val
+            reverse(a.right, b.left, not is_odd)
+            reverse(a.left, b.right, not is_odd)
+        
+        reverse(root.left, root.right, is_odd=True)
+
+        return root
