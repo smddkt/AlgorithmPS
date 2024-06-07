@@ -48,6 +48,8 @@ while b()==True and a()==True:
         bfs(int(arr[k][0]),int(arr[k][1]))
             
 
+
+
 if a()==True:
     print(-1)
 else: 
