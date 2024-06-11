@@ -1,0 +1,25 @@
+class Solution:
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        left, right = max(weights), sum(weights)
+
+        while left < right :
+            mid = left + (right-1) //2
+
+            if (self.possible(weights, days, mid)):
+                r = mid
+            else: 
+                l = mid+1
+        
+        return l
+
+    
+    def possible(self, weights: List[int], days: int, capacity: int) -> bool:
+        current_weight = 0
+        for w in weights:
+            if w + current_weight > capacity:
+                days-=1
+                current_weight = 0
+            current_weight += w
+        
+        return days>0
+    
