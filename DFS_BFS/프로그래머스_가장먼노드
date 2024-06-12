@@ -1,0 +1,20 @@
+def solution(n, edge):
+    graph = [[]for _ in range(n+1)]
+    not_visited = [i for i in range(2, n+1)]
+    for a, b in edge:
+        graph[a].append(b)
+        graph[b].append(a)
+    
+
+    far = {1}
+    while not_visited:
+        farther = set()
+        for node in far:
+            for j in graph[node]:
+                if j in not_visited:
+                    not_visited.remove(j)
+                    farther.add(j)
+        if not farther:
+            return 1
+        far = farther
+    return len(far)
