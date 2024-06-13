@@ -18,3 +18,30 @@ def solution(n, edge):
             return 1
         far = farther
     return len(far)
+
+
+#bfs 풀이 추가 : 시간복잡도 줄인 풀이
+from collections import deque
+
+def solution(n, edge):
+    graph = [[] for _ in range(n+1)]
+    dist = [0]*(n+1)
+    for i, j in edge:
+        graph[i].append(j)
+        graph[j].append(i)
+    
+    queue = deque([1])
+    while queue:
+        x = queue.popleft()
+        if graph[x]:
+            for k in graph[x]:
+                if k == 1:
+                    continue
+                if dist[k] == 0:
+                    dist[k] = dist[x]+1
+                    queue.append(k)
+    
+    a = max(dist)
+    answer = dist.count(a)
+    
+    return answer
