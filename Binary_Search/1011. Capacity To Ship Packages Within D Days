@@ -2,24 +2,24 @@ class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         left, right = max(weights), sum(weights)
 
-        while left < right :
-            mid = left + (right-1) //2
+        def shipWithinDays(weights, days, mid):
+            current_weight = 0
+            day = 1
+            for w in weights:
+                if current_weight + w > mid:
+                    day+=1
+                    current_weight = 0
+                current_weight += w
 
-            if (self.possible(weights, days, mid)):
-                r = mid
+            return day <= days
+
+
+        while left< right:
+            mid = (left+right) //2
+            if shipWithinDays(weights, days, mid):
+                right = mid
             else: 
-                l = mid+1
-        
-        return l
+                left = mid+1
 
-    
-    def possible(self, weights: List[int], days: int, capacity: int) -> bool:
-        current_weight = 0
-        for w in weights:
-            if w + current_weight > capacity:
-                days-=1
-                current_weight = 0
-            current_weight += w
+        return right
         
-        return days>0
-    
