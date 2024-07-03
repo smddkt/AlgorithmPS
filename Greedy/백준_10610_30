@@ -1,0 +1,19 @@
+import itertools
+n = input()
+arr = list(n)
+
+x = sorted(itertools.permutations(arr, len(arr)), reverse= True)
+k = len(x)
+
+for j in range(k):
+    x[j] = int(''.join(x[j]))
+    if j == k-1 and x[j]%30 != 0:
+        print('-1')
+    if x[j]%30 == 0:
+        print(x[j])
+        break
+
+
+
+    
+
