@@ -6,6 +6,7 @@ for i in range(n):
 students = int(input())
 price = 0
 
+
 for j in range(students):
     k = int(input())
     price+=arr[k-1]
