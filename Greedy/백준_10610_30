@@ -1,17 +1,19 @@
-import itertools
-n = input()
-arr = list(n)
+#30의 배수가 되려면 10의 배수이면서 3의 배수여야 한다. 
+#10의 배수가 되려면 1의자리가 0이어야 하고, 3의 배수가 되려면 각 자리의 숫자의 합이 3의 배수여야 한다. 
 
-x = sorted(itertools.permutations(arr, len(arr)), reverse= True)
-k = len(x)
+arr = input()
+sum_arr = 0
+for i in arr:
+    sum_arr += int(i)
 
-for j in range(k):
-    x[j] = int(''.join(x[j]))
-    if j == k-1 and x[j]%30 != 0:
-        print('-1')
-    if x[j]%30 == 0:
-        print(x[j])
-        break
+if '0' not in arr: print(-1)
+
+elif sum_arr%3!=0:
+    print(-1)
+
+else: 
+    arr = sorted(arr, reverse = True)
+    print(''.join(arr))
 
 
 
