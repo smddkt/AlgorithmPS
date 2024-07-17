@@ -27,6 +27,8 @@ def binary_search(start, end, arr, target):
 
 
 
+
+
 for k in nums:
     if binary_search(0, len(cards)-1, cards, k):
         print(1, end = ' ')
