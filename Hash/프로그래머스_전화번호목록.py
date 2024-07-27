@@ -27,5 +27,7 @@ def solution(phone_book):
             temp += char
             if temp in phone_book_dict and temp != phone_number:
                 return False
-    
     return True
+
+
+#이전화번호의 일부와 같은 전화번호를 찾았는데 그게 지금 있는 전화번호와 다르면 false를 리턴한다.
