@@ -22,9 +22,3 @@ for i in range(n):
     front=rear
     
 print('>')
-    
-
-
-
-# del arr[(front+1)%size]
-# del arr[k]
