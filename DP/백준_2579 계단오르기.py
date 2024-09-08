@@ -12,6 +12,7 @@ res_storage=[]
 def dp(a, n, res):
     while a<n:
         if arr[a+1] > arr[a+2]:
+            
             res+=arr[a+1]+arr[a+3]
             a+=3
             dp(a+3, n, res)
