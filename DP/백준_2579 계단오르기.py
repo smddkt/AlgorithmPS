@@ -1,6 +1,42 @@
 n = int(input())
 arr=[0]
 
+for i in range(1, n+1):
+    arr.append(int(input()))
+
+if n<2:
+    print(arr[n])
+else: 
+    dp = [0] * (n+1)
+    dp[1] = arr[1]
+    dp[2] = dp[1]+arr[2]
+
+    for i in range(3, n+1):
+        dp[i] = arr[i] + max(dp[i-3] + arr[i-1], dp[i-2])
+
+    print(dp[n])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+n = int(input())
+arr=[0]
+
 for _ in range(n):
     arr.append(int(input()))
 print(arr)
@@ -26,3 +62,4 @@ def dp(a, n, res):
 
 dp(a, n, res)
 print(max(res_storage))
+'''
