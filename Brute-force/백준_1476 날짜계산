@@ -1,1 +1,25 @@
 #https://www.acmicpc.net/problem/1476
+#15, 28, 19
+n = list(map(int, input().split(' ')))
+
+
+# 자 만약에 맨 처음 부분 n[0]은 머냐면 계속 그거를 15로 나누고 그 나머지를 뱉어내는 거임. 
+#근데 여기서 두번째랑 세 번째와의 관계를 보고 그 몫을 추론할 수 있는 건데
+#그게 가능한 여러가지의 수들 중에서 세 겨웅에서 다 나온 그 하나의 수를 뱉도록 함. 
+a=[]
+b=[]
+c=[]
+
+while n[0]>0:
+    i=0
+    a.append (n[0] + 15*i)
+    b.append (n[1] + 28*i)
+    c.append (n[2] + 19*i)
+    print(a, b, c)
+    if a[-1]==b[-1]==c[-1]:
+        break
+    else: i+=1
+
+print(i*15+n[0])
+
+
