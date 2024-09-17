@@ -9,7 +9,7 @@ m = int(input())
 nums = list(map(int, input().split()))
 
 cards = sorted(cards)
-
+  
 def binary_search(start, end, arr, target):
     while start <= end:
         mid = ((start + end)//2)
