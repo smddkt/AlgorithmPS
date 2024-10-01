@@ -117,3 +117,79 @@ else: print(mincount(str))
 1. str자체가 한 문자만으로 구성된 경우를 고려하지 않았고,
 2. if문에 해당하지 않으면 반복문의 다음 구간으로 바로 넘어가게 하지도 않았다.
 '''
+
+
+
+
+
+#다솜이 방번호 문제: 방 번호가 최대 6자리인데 숫자 세트가 몇 개 필요할까? 6, 9는 돌려서 쓸 수 있다. 
+
+from collections import Counter
+
+num = input()
+
+count = Counter(num)
+count['9'] = (count['9']+count['6']+1)//2
+count['6'] = 0
+
+max_count = sorted(count.values(), reverse = True)
+print(max_count[0])
+
+
+
+
+
+#가장 큰 금민수
+
+# 틀린 풀이
+# n = input()
+# arr = [0]
+
+# for k in n:
+#     arr.append(int(k))
+
+# for i in range(len(n), 0, -1):
+#     if i == 1:
+#         if arr[i]<4:
+#             del arr[1]
+#             break
+#     if arr[i]<4:
+#         arr[i] = 7
+#         arr[i-1] -= 1
+#     if arr[i]==4 or arr[i] ==5 or arr[i] ==6:
+#         arr[i] = 4
+#     else: arr[i] = 7
+
+# for j in range(1,len(arr)):
+#     print(arr[j], end= '')
+
+
+#다른 풀이 1
+n = input()
+while True:
+    a = n
+    if (a.count('4' + a.count('7')==len(b))):
+        print(a)
+        break
+    a-=100
+
+#다른 풀이 2
+
+import itertools
+arr=[]
+
+for i in range(1,7):
+    a = list(map(''.join, itertools.product((['4', '7']), repeat = i)))
+    for j in a : 
+        arr.append(j)
+    
+arr = reversed(list(map(int, arr)))
+
+n = int(input())
+
+for i in arr:
+    if i>n: 
+        continue
+    print(i)
+    break
+
