@@ -38,7 +38,7 @@ def binary_search(array, target, start, end):
     
 #이진 탐색의 구현 2. 반복문 이용하기
 
-def binary_search(array, target. start, end):
+def binary_search(array, target, start, end):
     while start <=end:
         mid = (start + end) //2
         
